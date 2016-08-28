@@ -1,9 +1,9 @@
-require 'opal'
-require 'sinatra'
+require 'bundler'
+Bundler.require
 
-opal = Opal::Server.new { |s|
+opal = Opal::Server.new {|s|
   s.append_path 'app'
-  s.main = 'sketch'
+  s.main = 'application'
   s.source_map = true
   s.debug = true
 }
@@ -24,12 +24,18 @@ map '/assets' do
 end
 
 get '/' do
-  opal_boot_code = Opal::Processor.load_asset_code(sprockets, 'sketch')
+  opal_boot_code = Opal::Processor.load_asset_code(sprockets, 'application')
 
   <<-HTML
-    <!DOCTYPE html>
-    <html lang="en">
-    <!-- ... -->
+    <!doctype html>
+    <html>
+      <head>
+        <script src="/assets/application.js"></script>
+        <script>#{opal_boot_code}</script>
+      </head>
+      <body>
+        <div id="content"></div>
+      </body>
     </html>
   HTML
 end
