@@ -1,4 +1,6 @@
-A Gem Named Sandoz
+sandoz demo
+
+The sandoz gem runs off the mystical powers of the great Opal (https://github.com/opal/opal) a Ruby to JS compiler. This requires a little bit of configuration. You can use this repo as a template for your sandoz projects.
 
 Make sure you have bundler installed
 
@@ -11,12 +13,11 @@ Then install dependencies:
 Additionally place a copy of P5 (https://p5js.org/download/) in the app directory. If you run `tree` in your project directory you should see something like this:
 
 .
-├── Gemfile
-├── README.md
-├── app
-│   ├── application.rb
-│   └── p5.js
-├── config.ru
+Gemfile
+app/
+    application.rb
+    p5.js
+config.ru
 
 Run:
 
