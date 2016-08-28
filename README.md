@@ -8,6 +8,16 @@ Then install dependencies:
 
     bundle install
 
+Additionally place a copy of P5 (https://p5js.org/download/) in the app directory. If you run `tree` in your project directory you should see something like this:
+
+.
+├── Gemfile
+├── README.md
+├── app
+│   ├── application.rb
+│   └── p5.js
+├── config.ru
+
 Run:
 
     bundle exec rackup
